@@ -161,7 +161,7 @@ export default function Home() {
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">All the tools, zero cost</h2>
               <p className="mt-2 text-slate-500">
                 {TOTAL_TOOL_COUNT} focused tools across PDFs, everyday conversions, calculators, text/data and
-                numbers - organized into five simple categories.
+                numbers and image utilities - organized into six simple categories.
               </p>
             </div>
 

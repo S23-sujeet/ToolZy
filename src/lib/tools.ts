@@ -47,7 +47,7 @@ import {
 } from '../components/icons';
 
 /** Top-level site sections shown on the homepage. */
-export type Section = 'pdf-toolkit' | 'everyday-conversions' | 'calculators' | 'text-data' | 'numbers-misc';
+export type Section = 'pdf-toolkit' | 'everyday-conversions' | 'calculators' | 'text-data' | 'numbers-misc' | 'image-tools';
 
 /** Sub-grouping used only within the PDF Toolkit hub page. */
 export type PdfCategory = 'organize' | 'convert' | 'edit' | 'optimize';
@@ -123,6 +123,16 @@ export const SECTIONS: SectionDefinition[] = [
     badge: 'bg-teal-50 text-teal-700 ring-teal-600/10',
     iconGradient: 'from-teal-500 to-teal-600',
     icon: BinaryIcon,
+  },
+  {
+    id: 'image-tools',
+    label: 'Image Tools',
+    shortLabel: 'Image Tools',
+    description: 'Resize and optimize images for documents, websites and social media.',
+    path: '/image-tools',
+    badge: 'bg-orange-50 text-orange-700 ring-orange-600/10',
+    iconGradient: 'from-orange-500 to-orange-600',
+    icon: ImageIcon,
   },
 ];
 
@@ -465,6 +475,27 @@ export const TOOLS: ToolDefinition[] = [
     section: 'text-data',
   },
   {
+    slug: 'qr-code-reader',
+    name: 'QR Code Reader',
+    description: 'Read a QR code from an image and copy the decoded text or link.',
+    icon: QrCodeIcon,
+    section: 'text-data',
+  },
+  {
+    slug: 'barcode-creator',
+    name: 'Barcode Creator',
+    description: 'Create downloadable Code 128, EAN-13 or UPC-A barcodes from text or numbers.',
+    icon: QrCodeIcon,
+    section: 'text-data',
+  },
+  {
+    slug: 'barcode-reader',
+    name: 'Barcode Reader',
+    description: 'Read a barcode from an image using your browser.',
+    icon: QrCodeIcon,
+    section: 'text-data',
+  },
+  {
     slug: 'text-line-tools',
     name: 'Text Line Tools',
     description: 'Find & replace, sort, and remove duplicate lines from a block of text.',
@@ -515,6 +546,13 @@ export const TOOLS: ToolDefinition[] = [
     icon: DiceIcon,
     section: 'numbers-misc',
   },
+  {
+    slug: 'image-resizer',
+    name: 'Image Resizer',
+    description: 'Resize images by pixel dimensions or fit them within an aspect-ratio-based frame.',
+    icon: ImageIcon,
+    section: 'image-tools',
+  },
 ];
 
 export function getToolBySlug(slug: string): ToolDefinition | undefined {
@@ -535,6 +573,9 @@ export const POPULAR_TOOL_SLUGS = [
   'percentage-calculator',
   'word-counter',
   'qr-code-generator',
+  'qr-code-reader',
+  'barcode-creator',
+  'image-resizer',
   'password-generator',
 ];
 
