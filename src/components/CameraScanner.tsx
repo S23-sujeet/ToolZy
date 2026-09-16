@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import jsQR from 'jsqr';
 import { BrowserMultiFormatReader, type IScannerControls } from '@zxing/browser';
+import type { Result } from '@zxing/library';
 
 interface CameraScannerProps {
   mode: 'qr' | 'barcode';
@@ -72,7 +73,7 @@ export default function CameraScanner({ mode, onResult }: CameraScannerProps) {
 
       if (mode === 'barcode') {
         const reader = new BrowserMultiFormatReader();
-        controlsRef.current = await reader.decodeFromStream(stream, video, (result) => {
+        controlsRef.current = await reader.decodeFromStream(stream, video, (result: Result | undefined) => {
           if (!result) return;
           onResult(result.getText(), result.getBarcodeFormat().toString());
           stop();
