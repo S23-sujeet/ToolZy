@@ -534,6 +534,7 @@ export const POPULAR_TOOL_SLUGS = [
   'bmi-calculator',
   'percentage-calculator',
   'word-counter',
+  'qr-code-generator',
   'password-generator',
 ];
 
