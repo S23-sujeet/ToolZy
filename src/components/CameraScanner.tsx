@@ -71,6 +71,10 @@ export default function CameraScanner({ mode, onResult }: CameraScannerProps) {
       await video.play();
       setActive(true);
 
+      if (mode === 'qr' && video.readyState >= HTMLMediaElement.HAVE_METADATA) {
+        startQrScan();
+      }
+
       if (mode === 'barcode') {
         const reader = new BrowserMultiFormatReader();
         controlsRef.current = await reader.decodeFromStream(stream, video, (result: Result | undefined) => {
@@ -102,7 +106,14 @@ export default function CameraScanner({ mode, onResult }: CameraScannerProps) {
           {active ? 'Stop camera' : 'Open camera'}
         </button>
       </div>
-      {active && <video ref={videoRef} autoPlay muted playsInline className="mt-4 aspect-video w-full rounded-lg bg-slate-900 object-cover" aria-label={`${mode === 'qr' ? 'QR code' : 'barcode'} camera preview`} />}
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        playsInline
+        className={`${active ? 'mt-4' : 'hidden'} aspect-video w-full rounded-lg bg-slate-900 object-cover`}
+        aria-label={`${mode === 'qr' ? 'QR code' : 'barcode'} camera preview`}
+      />
       {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
     </div>
   );

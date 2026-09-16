@@ -38,3 +38,12 @@ export async function resizeImage(file: File, options: ImageResizeOptions): Prom
     bitmap.close();
   }
 }
+
+export async function convertImage(file: File, format: ImageOutputFormat, quality = 0.9): Promise<Blob> {
+  const bitmap = await createImageBitmap(file);
+  try {
+    return (await resizeImage(file, { width: bitmap.width, height: bitmap.height, format, quality })).blob;
+  } finally {
+    bitmap.close();
+  }
+}

@@ -47,7 +47,15 @@ import {
 } from '../components/icons';
 
 /** Top-level site sections shown on the homepage. */
-export type Section = 'pdf-toolkit' | 'everyday-conversions' | 'calculators' | 'text-data' | 'numbers-misc' | 'image-tools';
+export type Section =
+  | 'pdf-toolkit'
+  | 'everyday-conversions'
+  | 'calculators'
+  | 'text-data'
+  | 'numbers-misc'
+  | 'image-tools'
+  | 'scanning-codes'
+  | 'developer-tools';
 
 /** Sub-grouping used only within the PDF Toolkit hub page. */
 export type PdfCategory = 'organize' | 'convert' | 'edit' | 'optimize';
@@ -128,11 +136,31 @@ export const SECTIONS: SectionDefinition[] = [
     id: 'image-tools',
     label: 'Image Tools',
     shortLabel: 'Image Tools',
-    description: 'Resize and optimize images for documents, websites and social media.',
+    description: 'Convert, resize and optimize images for documents, websites and social media.',
     path: '/image-tools',
     badge: 'bg-orange-50 text-orange-700 ring-orange-600/10',
     iconGradient: 'from-orange-500 to-orange-600',
     icon: ImageIcon,
+  },
+  {
+    id: 'scanning-codes',
+    label: 'Scanning & Codes',
+    shortLabel: 'Scanning & Codes',
+    description: 'Create and read QR codes and barcodes from your browser.',
+    path: '/scanning-codes',
+    badge: 'bg-cyan-50 text-cyan-700 ring-cyan-600/10',
+    iconGradient: 'from-cyan-500 to-cyan-600',
+    icon: QrCodeIcon,
+  },
+  {
+    id: 'developer-tools',
+    label: 'Developer Tools',
+    shortLabel: 'Developer Tools',
+    description: 'Format, encode, hash and convert common developer data locally.',
+    path: '/developer-tools',
+    badge: 'bg-slate-100 text-slate-700 ring-slate-600/10',
+    iconGradient: 'from-slate-600 to-slate-700',
+    icon: CodeIcon,
   },
 ];
 
@@ -430,7 +458,7 @@ export const TOOLS: ToolDefinition[] = [
     name: 'Base64 Encoder / Decoder',
     description: 'Encode text to Base64 or decode Base64 back to readable text.',
     icon: CodeIcon,
-    section: 'text-data',
+    section: 'developer-tools',
   },
   {
     slug: 'color-converter',
@@ -444,14 +472,14 @@ export const TOOLS: ToolDefinition[] = [
     name: 'JSON Formatter & Validator',
     description: 'Pretty-print, minify and validate JSON with clear error messages.',
     icon: CodeIcon,
-    section: 'text-data',
+    section: 'developer-tools',
   },
   {
     slug: 'url-encoder-decoder',
     name: 'URL Encoder / Decoder',
     description: 'Encode text for safe use in a URL, or decode a percent-encoded string.',
     icon: LinkIcon,
-    section: 'text-data',
+    section: 'developer-tools',
   },
   {
     slug: 'lorem-ipsum-generator',
@@ -472,34 +500,48 @@ export const TOOLS: ToolDefinition[] = [
     name: 'QR Code Generator',
     description: 'Turn any text, URL or contact info into a scannable QR code.',
     icon: QrCodeIcon,
-    section: 'text-data',
+    section: 'scanning-codes',
   },
   {
     slug: 'qr-code-reader',
     name: 'QR Code Reader',
     description: 'Read a QR code from an image and copy the decoded text or link.',
     icon: QrCodeIcon,
-    section: 'text-data',
+    section: 'scanning-codes',
   },
   {
     slug: 'barcode-creator',
     name: 'Barcode Creator',
     description: 'Create downloadable Code 128, EAN-13 or UPC-A barcodes from text or numbers.',
     icon: QrCodeIcon,
-    section: 'text-data',
+    section: 'scanning-codes',
   },
   {
     slug: 'barcode-reader',
     name: 'Barcode Reader',
     description: 'Read a barcode from an image using your browser.',
     icon: QrCodeIcon,
-    section: 'text-data',
+    section: 'scanning-codes',
   },
   {
     slug: 'text-line-tools',
     name: 'Text Line Tools',
     description: 'Find & replace, sort, and remove duplicate lines from a block of text.',
     icon: ListIcon,
+    section: 'text-data',
+  },
+  {
+    slug: 'online-notepad',
+    name: 'Online Notepad',
+    description: 'Write, save and download notes privately in your browser.',
+    icon: TextIcon,
+    section: 'text-data',
+  },
+  {
+    slug: 'text-file-merger',
+    name: 'Text File Merger',
+    description: 'Combine multiple plain-text or code files into one document.',
+    icon: MergeIcon,
     section: 'text-data',
   },
 
@@ -509,7 +551,7 @@ export const TOOLS: ToolDefinition[] = [
     name: 'Number Base Converter',
     description: 'Convert numbers between binary, octal, decimal and hexadecimal.',
     icon: BinaryIcon,
-    section: 'numbers-misc',
+    section: 'developer-tools',
   },
   {
     slug: 'roman-numeral-converter',
@@ -530,14 +572,14 @@ export const TOOLS: ToolDefinition[] = [
     name: 'Hash Generator',
     description: 'Generate SHA-1, SHA-256, SHA-384 or SHA-512 hashes from text.',
     icon: FingerprintIcon,
-    section: 'numbers-misc',
+    section: 'developer-tools',
   },
   {
     slug: 'uuid-generator',
     name: 'UUID Generator',
     description: 'Generate random RFC 4122 v4 UUIDs, one at a time or in bulk.',
     icon: IdCardIcon,
-    section: 'numbers-misc',
+    section: 'developer-tools',
   },
   {
     slug: 'random-generator',
@@ -551,6 +593,20 @@ export const TOOLS: ToolDefinition[] = [
     name: 'Image Resizer',
     description: 'Resize images by pixel dimensions or fit them within an aspect-ratio-based frame.',
     icon: ImageIcon,
+    section: 'image-tools',
+  },
+  {
+    slug: 'image-converter',
+    name: 'Image Converter',
+    description: 'Convert images between JPG, PNG and WebP formats in your browser.',
+    icon: ImageIcon,
+    section: 'image-tools',
+  },
+  {
+    slug: 'image-compressor',
+    name: 'Image Compressor',
+    description: 'Reduce image file size with adjustable quality while keeping processing local.',
+    icon: CompressIcon,
     section: 'image-tools',
   },
 ];
@@ -576,6 +632,10 @@ export const POPULAR_TOOL_SLUGS = [
   'qr-code-reader',
   'barcode-creator',
   'image-resizer',
+  'image-converter',
+  'image-compressor',
+  'online-notepad',
+  'text-file-merger',
   'password-generator',
 ];
 

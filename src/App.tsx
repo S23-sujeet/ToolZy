@@ -54,6 +54,8 @@ const QrCodeReader = lazy(() => import('./pages/tools/QrCodeReader'));
 const BarcodeCreator = lazy(() => import('./pages/tools/BarcodeCreator'));
 const BarcodeReader = lazy(() => import('./pages/tools/BarcodeReader'));
 const TextLineTools = lazy(() => import('./pages/tools/TextLineTools'));
+const OnlineNotepad = lazy(() => import('./pages/tools/OnlineNotepad'));
+const TextFileMerger = lazy(() => import('./pages/tools/TextFileMerger'));
 
 const NumberBaseConverter = lazy(() => import('./pages/tools/NumberBaseConverter'));
 const RomanNumeralConverter = lazy(() => import('./pages/tools/RomanNumeralConverter'));
@@ -62,6 +64,8 @@ const HashGenerator = lazy(() => import('./pages/tools/HashGenerator'));
 const UuidGenerator = lazy(() => import('./pages/tools/UuidGenerator'));
 const RandomGenerator = lazy(() => import('./pages/tools/RandomGenerator'));
 const ImageResizer = lazy(() => import('./pages/tools/ImageResizer'));
+const ImageConverter = lazy(() => import('./pages/tools/ImageConverter'));
+const ImageCompressor = lazy(() => import('./pages/tools/ImageCompressor'));
 
 function NotFound() {
   return (
@@ -91,6 +95,8 @@ export default function App() {
             <Route path="/text-data" element={<CategoryHub section="text-data" />} />
             <Route path="/numbers-misc" element={<CategoryHub section="numbers-misc" />} />
             <Route path="/image-tools" element={<CategoryHub section="image-tools" />} />
+            <Route path="/scanning-codes" element={<CategoryHub section="scanning-codes" />} />
+            <Route path="/developer-tools" element={<CategoryHub section="developer-tools" />} />
             <Route path="/tools/merge-pdf" element={<MergePdf />} />
             <Route path="/tools/split-pdf" element={<SplitPdf />} />
             <Route path="/tools/delete-pages" element={<DeletePages />} />
@@ -139,6 +145,8 @@ export default function App() {
             <Route path="/tools/barcode-creator" element={<BarcodeCreator />} />
             <Route path="/tools/barcode-reader" element={<BarcodeReader />} />
             <Route path="/tools/text-line-tools" element={<TextLineTools />} />
+            <Route path="/tools/online-notepad" element={<OnlineNotepad />} />
+            <Route path="/tools/text-file-merger" element={<TextFileMerger />} />
 
             <Route path="/tools/number-base-converter" element={<NumberBaseConverter />} />
             <Route path="/tools/roman-numeral-converter" element={<RomanNumeralConverter />} />
@@ -147,6 +155,8 @@ export default function App() {
             <Route path="/tools/uuid-generator" element={<UuidGenerator />} />
             <Route path="/tools/random-generator" element={<RandomGenerator />} />
             <Route path="/tools/image-resizer" element={<ImageResizer />} />
+            <Route path="/tools/image-converter" element={<ImageConverter />} />
+            <Route path="/tools/image-compressor" element={<ImageCompressor />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

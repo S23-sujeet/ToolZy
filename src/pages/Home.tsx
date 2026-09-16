@@ -77,7 +77,7 @@ export default function Home() {
             in your browser. No sign-up and no uploads.
           </p>
 
-          {/* Search - the fastest path to any of the 25 tools */}
+          {/* Search is the fastest path to any tool. */}
           <div className="mx-auto mt-8 max-w-xl">
             <div className="relative">
               <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
@@ -160,8 +160,8 @@ export default function Home() {
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">All the tools, zero cost</h2>
               <p className="mt-2 text-slate-500">
-                {TOTAL_TOOL_COUNT} focused tools across PDFs, everyday conversions, calculators, text/data and
-                numbers and image utilities - organized into six simple categories.
+                {TOTAL_TOOL_COUNT} focused tools across PDFs, conversions, calculators, text, developer utilities,
+                scanning and images - organized into clear categories.
               </p>
             </div>
 
@@ -183,7 +183,7 @@ export default function Home() {
             </div>
 
             {/* Browse by category - every section gets the exact same card treatment, PDF Toolkit included */}
-            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {SECTIONS.map((section) => (
                 <CategoryCard key={section.id} section={section} toolCount={getToolsBySection(section.id).length} />
               ))}
@@ -254,9 +254,9 @@ export default function Home() {
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-700 via-brand-600 to-brand-500 px-8 py-14 text-center shadow-xl">
           <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/10" />
           <div className="pointer-events-none absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-white/10" />
-          <h2 className="relative text-2xl font-bold text-white sm:text-3xl">Want an ad-free experience?</h2>
+          <h2 className="relative text-2xl font-bold text-white sm:text-3xl">Help keep Toolzy free</h2>
           <p className="relative mx-auto mt-2 max-w-lg text-brand-50">
-            Help keep Toolzy free, privacy-first, and improving with a small contribution.
+            Support hosting, privacy-first processing, and new tools with a small contribution.
           </p>
           <Link
             to="/premium"
