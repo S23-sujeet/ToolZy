@@ -1,10 +1,7 @@
 import { Link } from 'react-router-dom';
-import { usePremium } from '../context/PremiumContext';
 import { LogoMark, SparklesIcon } from './icons';
 
 export default function Header() {
-  const { isPremium, setPremium } = usePremium();
-
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-3 py-3 sm:px-4 sm:py-3.5">
@@ -24,25 +21,12 @@ export default function Header() {
           </Link>
           <Link
             to="/premium"
-            className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs whitespace-nowrap transition sm:px-3.5 sm:py-2 sm:text-sm ${
-              isPremium
-                ? 'bg-emerald-50 text-emerald-700'
-                : 'bg-gradient-to-r from-brand-600 to-brand-500 text-white shadow-sm shadow-brand-600/20 hover:from-brand-700 hover:to-brand-600'
-            }`}
+            className="flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-brand-600 to-brand-500 px-2.5 py-1.5 text-xs whitespace-nowrap text-white shadow-sm shadow-brand-600/20 transition hover:from-brand-700 hover:to-brand-600 sm:px-3.5 sm:py-2 sm:text-sm"
           >
             <SparklesIcon className="h-4 w-4 shrink-0" />
-            <span className="hidden sm:inline">{isPremium ? 'Premium active' : 'Go Premium'}</span>
-            <span className="sm:hidden">Premium</span>
+            <span className="hidden sm:inline">Support Toolzy</span>
+            <span className="sm:hidden">Support</span>
           </Link>
-          {isPremium && (
-            <button
-              type="button"
-              onClick={() => setPremium(false)}
-              className="text-xs whitespace-nowrap text-slate-400 underline underline-offset-2 hover:text-slate-600"
-            >
-              exit
-            </button>
-          )}
         </nav>
       </div>
     </header>

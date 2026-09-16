@@ -256,14 +256,14 @@ export default function Home() {
           <div className="pointer-events-none absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-white/10" />
           <h2 className="relative text-2xl font-bold text-white sm:text-3xl">Want an ad-free experience?</h2>
           <p className="relative mx-auto mt-2 max-w-lg text-brand-50">
-            Upgrade to Premium for a completely ad-free interface and higher batch limits.
+            Help keep Toolzy free, privacy-first, and improving with a small contribution.
           </p>
           <Link
             to="/premium"
             className="relative mt-6 inline-flex items-center gap-1.5 rounded-xl bg-white px-6 py-3 font-semibold text-brand-700 shadow-lg transition hover:bg-brand-50"
           >
             <SparklesIcon className="h-4 w-4" />
-            Go Premium
+            Support Toolzy
           </Link>
         </div>
       </section>
