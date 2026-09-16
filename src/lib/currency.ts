@@ -1,8 +1,8 @@
 /**
- * Currency conversion via the free, keyless frankfurter.app API (European Central Bank data).
+ * Currency conversion via the free, keyless Frankfurter v1 API (European Central Bank data).
  * Results are cached in-memory for a few minutes to avoid hammering the API on repeated input.
  */
-const API_BASE = 'https://api.frankfurter.app';
+const API_BASE = 'https://api.frankfurter.dev/v1';
 const CACHE_TTL_MS = 10 * 60 * 1000;
 
 export const COMMON_CURRENCIES = ['USD', 'EUR', 'GBP', 'JPY', 'INR', 'AUD', 'CAD', 'CHF', 'CNY', 'SGD'];
