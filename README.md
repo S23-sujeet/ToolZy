@@ -184,6 +184,20 @@ code, so it can be hosted anywhere that can serve static files.
 
 No environment variables are required to deploy a working, ad-free site.
 
+#### Enabling supporter payments
+
+The `/premium` route uses an external supporter checkout, so no payment backend is
+required. Create a Stripe Payment Link, Ko-fi page, or similar supporter page and
+set `VITE_SUPPORT_URL` to its public URL in the Cloudflare build environment. The
+value is intentionally public because it is only a checkout destination; never
+put payment API keys in a `VITE_` variable. Trigger a new deployment after adding
+or changing the variable.
+
+This first-stage supporter flow does not unlock a secure Premium entitlement or
+hide ads after payment. It simply accepts contributions while all tools remain
+free and client-side. A real subscription entitlement would require a webhook,
+Cloudflare Worker, and server-side verification.
+
 #### Deploying to Cloudflare Workers
 
 `wrangler.jsonc` in this repo uses the Workers **static assets** feature (`assets.directory`),
