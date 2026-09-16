@@ -1,0 +1,6 @@
+# Netlify-only SPA fallback rule. Left blank on purpose for Cloudflare deploys:
+# Cloudflare Workers/Pages handles SPA fallback via wrangler.jsonc's
+# assets.not_found_handling setting instead, and a catch-all rule here
+# conflicts with Cloudflare's redirect-loop validation and blocks deploys.
+# If you deploy to Netlify, uncomment the line below.
+# /*    /index.html   200

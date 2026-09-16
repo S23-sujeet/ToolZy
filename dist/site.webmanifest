@@ -1,0 +1,17 @@
+{
+  "name": "Toolzy - Free Online PDF Tools, Converters & Calculators",
+  "short_name": "Toolzy",
+  "description": "Merge, split, compress, rotate, watermark and convert PDFs for free, right in your browser.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#dc2626",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
