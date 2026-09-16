@@ -10,7 +10,6 @@ import {
   BoltIcon,
   DeviceIcon,
   MergeIcon,
-  PdfDocIcon,
   SearchIcon,
   ShieldCheckIcon,
   SparklesIcon,
@@ -29,19 +28,19 @@ const TRUST_POINTS = [
 
 const STEPS = [
   {
-    icon: PdfDocIcon,
+    icon: SparklesIcon,
     title: 'Choose a tool',
-    description: 'Pick from merge, split, compress, convert and more - no account needed.',
+    description: 'Choose from PDF tools, converters, calculators, text utilities and more.',
   },
   {
     icon: DeviceIcon,
-    title: 'Drop your file',
-    description: 'Your document is processed locally, right inside your browser tab.',
+    title: 'Enter your details',
+    description: 'Upload a file or enter your numbers, dates or text, depending on the tool.',
   },
   {
     icon: ArrowRightIcon,
-    title: 'Download the result',
-    description: 'Get your finished PDF or images back in seconds, ready to share.',
+    title: 'Get your result',
+    description: 'Download your file or copy the result instantly, with everything processed in your browser.',
   },
 ];
 
@@ -74,8 +73,8 @@ export default function Home() {
             Every everyday tool you need, <span className="text-brand-600">in one place</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-500">
-            PDF tools, currency &amp; unit converters, calculators and text utilities - free, and everything runs
-            right in your browser. Your data never leaves your device.
+            Free PDF tools, everyday converters, calculators, text utilities and number tools, all running privately
+            in your browser. No sign-up and no uploads.
           </p>
 
           {/* Search - the fastest path to any of the 25 tools */}
@@ -198,7 +197,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">How it works</h2>
-            <p className="mt-2 text-slate-500">Three steps, no installation, no waiting for uploads.</p>
+            <p className="mt-2 text-slate-500">Find the right tool, provide what it needs, and get an instant result.</p>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
             {STEPS.map((step, index) => (
