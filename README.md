@@ -68,7 +68,7 @@ Once you pick a real domain, update:
 ### Everyday Conversions
 | Tool | Description |
 | --- | --- |
-| Currency Converter | Live exchange rates via frankfurter.app |
+| Currency Converter | Live exchange rates via Frankfurter |
 | Unit Converter | Length, weight, volume, area, speed, data storage |
 | Temperature Converter | Celsius/Fahrenheit/Kelvin |
 | Timezone Converter | Convert a date/time between any two timezones |
@@ -104,6 +104,9 @@ Once you pick a real domain, update:
 | Lorem Ipsum Generator | Placeholder paragraph generator |
 | Text Diff Checker | Line-based added/removed/unchanged comparison |
 | QR Code Generator | Text/URL to scannable QR code PNG |
+| QR Code Reader | Decode QR codes from uploaded images |
+| Barcode Creator | Create Code 128, EAN-13 and UPC-A barcode PNGs |
+| Barcode Reader | Decode barcodes from uploaded images |
 | Text Line Tools | Find & replace, sort lines, remove duplicates |
 
 ### Numbers & Misc
@@ -115,6 +118,11 @@ Once you pick a real domain, update:
 | Hash Generator | SHA-1/256/384/512 via Web Crypto |
 | UUID Generator | RFC 4122 v4 UUIDs, single or bulk |
 | Random Number / Dice / Coin Flip | CSPRNG-based random generators |
+
+### Image Tools
+| Tool | Description |
+| --- | --- |
+| Image Resizer | Resize images by pixels with aspect-ratio preservation |
 
 ## Getting started
 

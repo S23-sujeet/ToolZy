@@ -76,6 +76,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.toolzy.app/image-tools</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.toolzy.app/tools/currency-converter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -251,6 +256,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.toolzy.app/tools/qr-code-reader</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.toolzy.app/tools/barcode-creator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.toolzy.app/tools/barcode-reader</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.toolzy.app/tools/text-line-tools</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -269,6 +289,11 @@
     <loc>https://www.toolzy.app/tools/random-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.toolzy.app/tools/image-resizer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.toolzy.app/premium</loc>
