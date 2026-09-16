@@ -111,7 +111,7 @@ Once you pick a real domain, update:
 | Online Notepad | Write, auto-save and download notes locally in the browser |
 | Text File Merger | Combine UTF-8 text and code files in a chosen order |
 
-### Numbers & Misc
+### Math & Generators
 | Tool | Description |
 | --- | --- |
 | Number Base Converter | Binary/octal/decimal/hexadecimal |
@@ -138,6 +138,46 @@ Once you pick a real domain, update:
 | Number Base Converter | Binary/octal/decimal/hexadecimal |
 | Hash Generator | SHA-1/256/384/512 hashes via Web Crypto |
 | UUID Generator | RFC 4122 v4 UUIDs, single or bulk |
+| Code Formatter | Format JSON, HTML, CSS, JavaScript and Markdown |
+| SQL Formatter | Indent and normalize common SQL queries |
+| Regex Tester | Test expressions and inspect capture groups |
+| Unix Timestamp Converter | Convert Unix seconds and milliseconds |
+
+### Security & Encoding
+| Tool | Description |
+| --- | --- |
+| Password Generator | CSPRNG-based customizable passwords |
+| Password Strength Checker | Evaluate password strength locally |
+| JWT Decoder | Inspect JWT headers and payloads without verification |
+| File Checksum Generator | Generate a SHA-256 checksum for a local file |
+
+### Web & SEO Tools
+| Tool | Description |
+| --- | --- |
+| UTM Builder | Build campaign URLs with tracking parameters |
+| Meta Tag Generator | Generate SEO and social metadata |
+| URL Slug Generator | Create clean search-friendly URL slugs |
+| Favicon Generator | Create a 32px PNG favicon |
+
+### Business Tools
+| Tool | Description |
+| --- | --- |
+| Profit Margin Calculator | Calculate profit, margin and markup |
+| Invoice Generator | Create and print a simple local invoice |
+
+### Productivity Tools
+| Tool | Description |
+| --- | --- |
+| Pomodoro Timer | Run focused work and break sessions |
+
+### New Calculators and Math Tools
+| Tool | Description |
+| --- | --- |
+| Mortgage Amortization Calculator | View monthly payment and interest schedule |
+| Fuel Cost Calculator | Estimate trip fuel expenses |
+| Unit Price Calculator | Compare products by unit cost |
+| Prime Number Checker | Check primality and simple factors |
+| Fraction Calculator | Calculate and simplify fractions |
 
 ### Image Tools
 | Tool | Description |
@@ -145,6 +185,16 @@ Once you pick a real domain, update:
 | Image Resizer | Resize images by pixels with aspect-ratio preservation |
 | Image Converter | Convert JPG, PNG and WebP images locally |
 | Image Compressor | Reduce image file size with adjustable JPG quality |
+| Image Cropper | Crop images to custom dimensions |
+
+### Additional PDF and Scanning Tools
+| Tool | Description |
+| --- | --- |
+| PDF Page Cropper | Remove PDF page margins and scanner borders |
+| PDF Fill and Sign | Add text to the first PDF page locally |
+| QR Code with Logo | Create a branded QR code with a centered logo |
+| CSV JSON Converter | Convert CSV and JSON data locally |
+| Markdown Editor | Edit, preview and download Markdown |
 
 ## Getting started
 

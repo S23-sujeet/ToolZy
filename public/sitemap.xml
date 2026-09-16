@@ -71,7 +71,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.toolzy.app/numbers-misc</loc>
+    <loc>https://www.toolzy.app/math-generators</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -90,6 +90,35 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://www.toolzy.app/security-encoding</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/web-seo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/business-tools</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/productivity-tools</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolzy.app/tools/code-formatter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/tools/sql-formatter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/tools/regex-tester</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/tools/jwt-decoder</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/tools/timestamp-converter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/tools/csv-json-converter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/tools/markdown-editor</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolzy.app/tools/password-strength</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolzy.app/tools/file-checksum</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolzy.app/tools/image-cropper</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/tools/pdf-page-cropper</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/tools/pdf-fill-sign</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/tools/profit-margin</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolzy.app/tools/mortgage-amortization</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/tools/fuel-cost</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolzy.app/tools/unit-price</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolzy.app/tools/utm-builder</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/tools/meta-tag-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/tools/url-slug-generator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolzy.app/tools/invoice-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.toolzy.app/tools/pomodoro-timer</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolzy.app/tools/prime-checker</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.toolzy.app/tools/fraction-calculator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolzy.app/tools/qr-logo-generator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.toolzy.app/tools/favicon-generator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url>
     <loc>https://www.toolzy.app/tools/image-resizer</loc>
     <changefreq>monthly</changefreq>
