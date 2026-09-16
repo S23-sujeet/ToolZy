@@ -108,6 +108,8 @@ Once you pick a real domain, update:
 | Barcode Creator | Create Code 128, EAN-13 and UPC-A barcode PNGs |
 | Barcode Reader | Decode barcodes from uploaded images |
 | Text Line Tools | Find & replace, sort lines, remove duplicates |
+| Online Notepad | Write, auto-save and download notes locally in the browser |
+| Text File Merger | Combine UTF-8 text and code files in a chosen order |
 
 ### Numbers & Misc
 | Tool | Description |
@@ -119,10 +121,30 @@ Once you pick a real domain, update:
 | UUID Generator | RFC 4122 v4 UUIDs, single or bulk |
 | Random Number / Dice / Coin Flip | CSPRNG-based random generators |
 
+### Scanning & Codes
+| Tool | Description |
+| --- | --- |
+| QR Code Generator | Text/URL to scannable QR code PNG |
+| QR Code Reader | Decode QR codes from uploaded images |
+| Barcode Creator | Create Code 128, EAN-13 and UPC-A barcode PNGs |
+| Barcode Reader | Decode barcodes from uploaded images |
+
+### Developer Tools
+| Tool | Description |
+| --- | --- |
+| Base64 Encoder / Decoder | Unicode-safe Base64 encode/decode |
+| JSON Formatter & Validator | Pretty-print, minify and validate JSON |
+| URL Encoder / Decoder | Percent-encode/decode text |
+| Number Base Converter | Binary/octal/decimal/hexadecimal |
+| Hash Generator | SHA-1/256/384/512 hashes via Web Crypto |
+| UUID Generator | RFC 4122 v4 UUIDs, single or bulk |
+
 ### Image Tools
 | Tool | Description |
 | --- | --- |
 | Image Resizer | Resize images by pixels with aspect-ratio preservation |
+| Image Converter | Convert JPG, PNG and WebP images locally |
+| Image Compressor | Reduce image file size with adjustable JPG quality |
 
 ## Getting started
 
@@ -146,7 +168,7 @@ plus static fallbacks that work even without JS execution:
   `WebApplication` JSON-LD structured data block, so the initial (pre-JS) HTML
   response is already meaningful to crawlers and social-media unfurlers.
 - **`public/robots.txt`** allows all crawling and points to the sitemap.
-- **`public/sitemap.xml`** lists every route (home, premium, 5 category hubs, and
+- **`public/sitemap.xml`** lists every route (home, premium, 8 category hubs, and
   every tool page).
 - **`public/site.webmanifest`** adds installability signals (helps mobile/PWA-aware
   ranking signals and "Add to Home Screen").
