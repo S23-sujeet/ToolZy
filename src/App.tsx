@@ -50,6 +50,9 @@ const UrlEncoderDecoder = lazy(() => import('./pages/tools/UrlEncoderDecoder'));
 const LoremIpsumGenerator = lazy(() => import('./pages/tools/LoremIpsumGenerator'));
 const TextDiffChecker = lazy(() => import('./pages/tools/TextDiffChecker'));
 const QrCodeGenerator = lazy(() => import('./pages/tools/QrCodeGenerator'));
+const QrCodeReader = lazy(() => import('./pages/tools/QrCodeReader'));
+const BarcodeCreator = lazy(() => import('./pages/tools/BarcodeCreator'));
+const BarcodeReader = lazy(() => import('./pages/tools/BarcodeReader'));
 const TextLineTools = lazy(() => import('./pages/tools/TextLineTools'));
 
 const NumberBaseConverter = lazy(() => import('./pages/tools/NumberBaseConverter'));
@@ -58,6 +61,7 @@ const PasswordGenerator = lazy(() => import('./pages/tools/PasswordGenerator'));
 const HashGenerator = lazy(() => import('./pages/tools/HashGenerator'));
 const UuidGenerator = lazy(() => import('./pages/tools/UuidGenerator'));
 const RandomGenerator = lazy(() => import('./pages/tools/RandomGenerator'));
+const ImageResizer = lazy(() => import('./pages/tools/ImageResizer'));
 
 function NotFound() {
   return (
@@ -86,6 +90,7 @@ export default function App() {
             <Route path="/calculators" element={<CategoryHub section="calculators" />} />
             <Route path="/text-data" element={<CategoryHub section="text-data" />} />
             <Route path="/numbers-misc" element={<CategoryHub section="numbers-misc" />} />
+            <Route path="/image-tools" element={<CategoryHub section="image-tools" />} />
             <Route path="/tools/merge-pdf" element={<MergePdf />} />
             <Route path="/tools/split-pdf" element={<SplitPdf />} />
             <Route path="/tools/delete-pages" element={<DeletePages />} />
@@ -130,6 +135,9 @@ export default function App() {
             <Route path="/tools/lorem-ipsum-generator" element={<LoremIpsumGenerator />} />
             <Route path="/tools/text-diff-checker" element={<TextDiffChecker />} />
             <Route path="/tools/qr-code-generator" element={<QrCodeGenerator />} />
+            <Route path="/tools/qr-code-reader" element={<QrCodeReader />} />
+            <Route path="/tools/barcode-creator" element={<BarcodeCreator />} />
+            <Route path="/tools/barcode-reader" element={<BarcodeReader />} />
             <Route path="/tools/text-line-tools" element={<TextLineTools />} />
 
             <Route path="/tools/number-base-converter" element={<NumberBaseConverter />} />
@@ -138,6 +146,7 @@ export default function App() {
             <Route path="/tools/hash-generator" element={<HashGenerator />} />
             <Route path="/tools/uuid-generator" element={<UuidGenerator />} />
             <Route path="/tools/random-generator" element={<RandomGenerator />} />
+            <Route path="/tools/image-resizer" element={<ImageResizer />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
