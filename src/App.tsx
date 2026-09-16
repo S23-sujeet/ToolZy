@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Premium from './pages/Premium';
 import CategoryHub from './pages/CategoryHub';
+import ExpandedTools, { type ExpandedToolKind } from './pages/tools/ExpandedTools';
 
 const MergePdf = lazy(() => import('./pages/tools/MergePdf'));
 const SplitPdf = lazy(() => import('./pages/tools/SplitPdf'));
@@ -93,10 +94,14 @@ export default function App() {
             <Route path="/everyday-conversions" element={<CategoryHub section="everyday-conversions" />} />
             <Route path="/calculators" element={<CategoryHub section="calculators" />} />
             <Route path="/text-data" element={<CategoryHub section="text-data" />} />
-            <Route path="/numbers-misc" element={<CategoryHub section="numbers-misc" />} />
+            <Route path="/math-generators" element={<CategoryHub section="math-generators" />} />
             <Route path="/image-tools" element={<CategoryHub section="image-tools" />} />
             <Route path="/scanning-codes" element={<CategoryHub section="scanning-codes" />} />
             <Route path="/developer-tools" element={<CategoryHub section="developer-tools" />} />
+            <Route path="/security-encoding" element={<CategoryHub section="security-encoding" />} />
+            <Route path="/web-seo" element={<CategoryHub section="web-seo" />} />
+            <Route path="/business-tools" element={<CategoryHub section="business-tools" />} />
+            <Route path="/productivity-tools" element={<CategoryHub section="productivity-tools" />} />
             <Route path="/tools/merge-pdf" element={<MergePdf />} />
             <Route path="/tools/split-pdf" element={<SplitPdf />} />
             <Route path="/tools/delete-pages" element={<DeletePages />} />
@@ -157,6 +162,17 @@ export default function App() {
             <Route path="/tools/image-resizer" element={<ImageResizer />} />
             <Route path="/tools/image-converter" element={<ImageConverter />} />
             <Route path="/tools/image-compressor" element={<ImageCompressor />} />
+
+            {([
+              'code-formatter', 'sql-formatter', 'regex-tester', 'jwt-decoder', 'timestamp-converter',
+              'csv-json-converter', 'markdown-editor', 'password-strength', 'file-checksum', 'image-cropper',
+              'pdf-page-cropper', 'profit-margin', 'mortgage-amortization', 'fuel-cost', 'unit-price',
+              'utm-builder', 'meta-tag-generator', 'url-slug-generator', 'invoice-generator', 'pomodoro-timer',
+              'prime-checker', 'fraction-calculator',
+              'qr-logo-generator', 'favicon-generator', 'pdf-fill-sign',
+            ] as ExpandedToolKind[]).map((kind) => (
+              <Route key={kind} path={`/tools/${kind}`} element={<ExpandedTools kind={kind} />} />
+            ))}
 
             <Route path="*" element={<NotFound />} />
           </Routes>

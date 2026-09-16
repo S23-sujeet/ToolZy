@@ -52,10 +52,14 @@ export type Section =
   | 'everyday-conversions'
   | 'calculators'
   | 'text-data'
-  | 'numbers-misc'
+  | 'math-generators'
   | 'image-tools'
   | 'scanning-codes'
-  | 'developer-tools';
+  | 'developer-tools'
+  | 'security-encoding'
+  | 'web-seo'
+  | 'business-tools'
+  | 'productivity-tools';
 
 /** Sub-grouping used only within the PDF Toolkit hub page. */
 export type PdfCategory = 'organize' | 'convert' | 'edit' | 'optimize';
@@ -123,11 +127,11 @@ export const SECTIONS: SectionDefinition[] = [
     icon: CaseIcon,
   },
   {
-    id: 'numbers-misc',
-    label: 'Numbers & Misc',
-    shortLabel: 'Numbers & Misc',
-    description: 'Number base conversion, Roman numerals and a secure password generator.',
-    path: '/numbers-misc',
+    id: 'math-generators',
+    label: 'Math & Generators',
+    shortLabel: 'Math & Generators',
+    description: 'Roman numerals, prime numbers, fractions and random generators.',
+    path: '/math-generators',
     badge: 'bg-teal-50 text-teal-700 ring-teal-600/10',
     iconGradient: 'from-teal-500 to-teal-600',
     icon: BinaryIcon,
@@ -161,6 +165,46 @@ export const SECTIONS: SectionDefinition[] = [
     badge: 'bg-slate-100 text-slate-700 ring-slate-600/10',
     iconGradient: 'from-slate-600 to-slate-700',
     icon: CodeIcon,
+  },
+  {
+    id: 'security-encoding',
+    label: 'Security & Encoding',
+    shortLabel: 'Security',
+    description: 'Inspect, encode and verify data privately in your browser.',
+    path: '/security-encoding',
+    badge: 'bg-emerald-50 text-emerald-700 ring-emerald-600/10',
+    iconGradient: 'from-emerald-500 to-emerald-600',
+    icon: KeyIcon,
+  },
+  {
+    id: 'web-seo',
+    label: 'Web & SEO Tools',
+    shortLabel: 'Web & SEO',
+    description: 'Build campaign links, metadata and clean URLs for websites.',
+    path: '/web-seo',
+    badge: 'bg-violet-50 text-violet-700 ring-violet-600/10',
+    iconGradient: 'from-violet-500 to-violet-600',
+    icon: GlobeIcon,
+  },
+  {
+    id: 'business-tools',
+    label: 'Business Tools',
+    shortLabel: 'Business',
+    description: 'Practical tools for pricing, invoices and small-business work.',
+    path: '/business-tools',
+    badge: 'bg-amber-50 text-amber-700 ring-amber-600/10',
+    iconGradient: 'from-amber-500 to-amber-600',
+    icon: ReceiptIcon,
+  },
+  {
+    id: 'productivity-tools',
+    label: 'Productivity Tools',
+    shortLabel: 'Productivity',
+    description: 'Simple focused tools for planning, writing and getting work done.',
+    path: '/productivity-tools',
+    badge: 'bg-lime-50 text-lime-700 ring-lime-600/10',
+    iconGradient: 'from-lime-500 to-lime-600',
+    icon: TrendingUpIcon,
   },
 ];
 
@@ -545,7 +589,7 @@ export const TOOLS: ToolDefinition[] = [
     section: 'text-data',
   },
 
-  // --- Numbers & Misc ---
+  // --- Math, security and new workflow tools ---
   {
     slug: 'number-base-converter',
     name: 'Number Base Converter',
@@ -558,14 +602,14 @@ export const TOOLS: ToolDefinition[] = [
     name: 'Roman Numeral Converter',
     description: 'Convert between numbers and Roman numerals in both directions.',
     icon: NumeralIcon,
-    section: 'numbers-misc',
+    section: 'math-generators',
   },
   {
     slug: 'password-generator',
     name: 'Password Generator',
     description: 'Generate a strong, random password with customizable length and characters.',
     icon: KeyIcon,
-    section: 'numbers-misc',
+    section: 'security-encoding',
   },
   {
     slug: 'hash-generator',
@@ -586,7 +630,7 @@ export const TOOLS: ToolDefinition[] = [
     name: 'Random Number / Dice / Coin Flip',
     description: 'Generate random numbers, roll dice, or flip a coin.',
     icon: DiceIcon,
-    section: 'numbers-misc',
+    section: 'math-generators',
   },
   {
     slug: 'image-resizer',
@@ -608,6 +652,81 @@ export const TOOLS: ToolDefinition[] = [
     description: 'Reduce image file size with adjustable quality while keeping processing local.',
     icon: CompressIcon,
     section: 'image-tools',
+  },
+  {
+    slug: 'code-formatter', name: 'Code Formatter', description: 'Format JSON, HTML, CSS, JavaScript and Markdown locally.', icon: CodeIcon, section: 'developer-tools',
+  },
+  {
+    slug: 'sql-formatter', name: 'SQL Formatter', description: 'Make SQL queries readable with indentation and normalized keywords.', icon: CodeIcon, section: 'developer-tools',
+  },
+  {
+    slug: 'regex-tester', name: 'Regex Tester', description: 'Test regular expressions with matches and capture groups.', icon: CodeIcon, section: 'developer-tools',
+  },
+  {
+    slug: 'jwt-decoder', name: 'JWT Decoder', description: 'Decode JWT headers and payloads without sending them anywhere.', icon: KeyIcon, section: 'security-encoding',
+  },
+  {
+    slug: 'timestamp-converter', name: 'Unix Timestamp Converter', description: 'Convert Unix seconds or milliseconds to readable dates.', icon: LinkIcon, section: 'developer-tools',
+  },
+  {
+    slug: 'csv-json-converter', name: 'CSV JSON Converter', description: 'Convert CSV data to JSON or JSON arrays to CSV.', icon: CodeIcon, section: 'text-data',
+  },
+  {
+    slug: 'markdown-editor', name: 'Markdown Editor', description: 'Write Markdown, preview it and download the document.', icon: TextIcon, section: 'text-data',
+  },
+  {
+    slug: 'password-strength', name: 'Password Strength Checker', description: 'Evaluate password strength locally without storing it.', icon: KeyIcon, section: 'security-encoding',
+  },
+  {
+    slug: 'file-checksum', name: 'File Checksum Generator', description: 'Generate a SHA-256 checksum for a local file.', icon: FingerprintIcon, section: 'security-encoding',
+  },
+  {
+    slug: 'image-cropper', name: 'Image Cropper', description: 'Crop images to custom dimensions and download them.', icon: ImageIcon, section: 'image-tools',
+  },
+  {
+    slug: 'pdf-page-cropper', name: 'PDF Page Cropper', description: 'Trim PDF page margins and scanner borders.', icon: PdfDocIcon, section: 'pdf-toolkit', pdfCategory: 'edit',
+  },
+  {
+    slug: 'profit-margin', name: 'Profit Margin Calculator', description: 'Calculate profit, margin and markup from your costs.', icon: TrendingUpIcon, section: 'business-tools',
+  },
+  {
+    slug: 'mortgage-amortization', name: 'Mortgage Amortization Calculator', description: 'View payments and a principal versus interest schedule.', icon: CalculatorIcon, section: 'calculators',
+  },
+  {
+    slug: 'fuel-cost', name: 'Fuel Cost Calculator', description: 'Estimate trip fuel cost from distance and mileage.', icon: CalculatorIcon, section: 'calculators',
+  },
+  {
+    slug: 'unit-price', name: 'Unit Price Calculator', description: 'Compare prices by weight, volume or item count.', icon: CalculatorIcon, section: 'calculators',
+  },
+  {
+    slug: 'utm-builder', name: 'UTM Builder', description: 'Create campaign URLs with source, medium and campaign tags.', icon: LinkIcon, section: 'web-seo',
+  },
+  {
+    slug: 'meta-tag-generator', name: 'Meta Tag Generator', description: 'Generate SEO, Open Graph and Twitter metadata.', icon: CodeIcon, section: 'web-seo',
+  },
+  {
+    slug: 'url-slug-generator', name: 'URL Slug Generator', description: 'Convert titles into clean search-friendly URL slugs.', icon: LinkIcon, section: 'web-seo',
+  },
+  {
+    slug: 'invoice-generator', name: 'Invoice Generator', description: 'Create a simple invoice for download and printing.', icon: ReceiptIcon, section: 'business-tools',
+  },
+  {
+    slug: 'pomodoro-timer', name: 'Pomodoro Timer', description: 'Focus in timed work and break sessions.', icon: TrendingUpIcon, section: 'productivity-tools',
+  },
+  {
+    slug: 'prime-checker', name: 'Prime Number Checker', description: 'Check primality and inspect simple factors.', icon: CalculatorIcon, section: 'math-generators',
+  },
+  {
+    slug: 'fraction-calculator', name: 'Fraction Calculator', description: 'Add, subtract, multiply and divide fractions.', icon: CalculatorIcon, section: 'math-generators',
+  },
+  {
+    slug: 'qr-logo-generator', name: 'QR Code with Logo', description: 'Create a QR code with a centered logo for branded sharing.', icon: ImageIcon, section: 'scanning-codes',
+  },
+  {
+    slug: 'favicon-generator', name: 'Favicon Generator', description: 'Create a favicon from an image for your website.', icon: ImageIcon, section: 'web-seo',
+  },
+  {
+    slug: 'pdf-fill-sign', name: 'PDF Fill and Sign', description: 'Add text to the first page of a PDF and download it locally.', icon: PdfDocIcon, section: 'pdf-toolkit', pdfCategory: 'edit',
   },
 ];
 
