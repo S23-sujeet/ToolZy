@@ -239,3 +239,31 @@ export function getDateRangeForIsoWeek(year: number, week: number): IsoWeekRange
 
   return { start: monday.toISOString().slice(0, 10), end: sunday.toISOString().slice(0, 10) };
 }
+
+export interface AgeResult {
+  years: number;
+  months: number;
+  days: number;
+  totalDays: number;
+  nextBirthday: string;
+  daysUntilNextBirthday: number;
+}
+
+/** Calendar-aware age breakdown as of a given date (defaults to today), plus next-birthday countdown. */
+export function calculateAge(birthDateISO: string, asOfISO: string = todayISO()): AgeResult {
+  const birth = parseDate(birthDateISO);
+  const asOf = parseDate(asOfISO);
+  if (birth.getTime() > asOf.getTime()) {
+    throw new Error('Birth date must be on or before the "as of" date.');
+  }
+
+  const { years, months, days, totalDays } = diffDates(birthDateISO, asOfISO);
+
+  let nextBirthday = new Date(asOf.getFullYear(), birth.getMonth(), birth.getDate());
+  if (nextBirthday.getTime() < asOf.getTime()) {
+    nextBirthday = new Date(asOf.getFullYear() + 1, birth.getMonth(), birth.getDate());
+  }
+  const daysUntilNextBirthday = Math.round((nextBirthday.getTime() - asOf.getTime()) / 86_400_000);
+
+  return { years, months, days, totalDays, nextBirthday: formatLocalDate(nextBirthday), daysUntilNextBirthday };
+}

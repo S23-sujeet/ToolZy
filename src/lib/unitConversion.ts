@@ -1,4 +1,4 @@
-export type MeasurementType = 'length' | 'weight' | 'volume';
+export type MeasurementType = 'length' | 'weight' | 'volume' | 'area' | 'speed' | 'digital';
 
 export interface UnitDef {
   key: string;
@@ -46,6 +46,46 @@ export const UNIT_GROUPS: Record<MeasurementType, { label: string; baseLabel: st
       { key: 'pt', label: 'Pints (pt)', toBase: 0.473176 },
       { key: 'qt', label: 'Quarts (qt)', toBase: 0.946353 },
       { key: 'gal', label: 'Gallons (gal)', toBase: 3.78541 },
+    ],
+  },
+  area: {
+    label: 'Area',
+    baseLabel: 'square meters',
+    units: [
+      { key: 'sqmm', label: 'Square millimeters (mm²)', toBase: 0.000001 },
+      { key: 'sqcm', label: 'Square centimeters (cm²)', toBase: 0.0001 },
+      { key: 'sqm', label: 'Square meters (m²)', toBase: 1 },
+      { key: 'hectare', label: 'Hectares (ha)', toBase: 10_000 },
+      { key: 'sqkm', label: 'Square kilometers (km²)', toBase: 1_000_000 },
+      { key: 'sqin', label: 'Square inches (in²)', toBase: 0.00064516 },
+      { key: 'sqft', label: 'Square feet (ft²)', toBase: 0.09290304 },
+      { key: 'sqyd', label: 'Square yards (yd²)', toBase: 0.83612736 },
+      { key: 'acre', label: 'Acres', toBase: 4046.8564224 },
+      { key: 'sqmi', label: 'Square miles (mi²)', toBase: 2_589_988.110336 },
+    ],
+  },
+  speed: {
+    label: 'Speed',
+    baseLabel: 'meters per second',
+    units: [
+      { key: 'mps', label: 'Meters/second (m/s)', toBase: 1 },
+      { key: 'kmh', label: 'Kilometers/hour (km/h)', toBase: 0.277778 },
+      { key: 'mph', label: 'Miles/hour (mph)', toBase: 0.44704 },
+      { key: 'knot', label: 'Knots (kn)', toBase: 0.514444 },
+      { key: 'fps', label: 'Feet/second (ft/s)', toBase: 0.3048 },
+    ],
+  },
+  digital: {
+    label: 'Data Storage',
+    baseLabel: 'bytes',
+    units: [
+      { key: 'bit', label: 'Bits (b)', toBase: 0.125 },
+      { key: 'byte', label: 'Bytes (B)', toBase: 1 },
+      { key: 'kb', label: 'Kilobytes (KB)', toBase: 1024 },
+      { key: 'mb', label: 'Megabytes (MB)', toBase: 1024 ** 2 },
+      { key: 'gb', label: 'Gigabytes (GB)', toBase: 1024 ** 3 },
+      { key: 'tb', label: 'Terabytes (TB)', toBase: 1024 ** 4 },
+      { key: 'pb', label: 'Petabytes (PB)', toBase: 1024 ** 5 },
     ],
   },
 };

@@ -15,26 +15,49 @@ const WatermarkPdf = lazy(() => import('./pages/tools/WatermarkPdf'));
 const PageNumbers = lazy(() => import('./pages/tools/PageNumbers'));
 const ImagesToPdf = lazy(() => import('./pages/tools/ImagesToPdf'));
 const PdfToImages = lazy(() => import('./pages/tools/PdfToImages'));
+const ExtractPdfText = lazy(() => import('./pages/tools/ExtractPdfText'));
+const ExtractPdfImages = lazy(() => import('./pages/tools/ExtractPdfImages'));
+const ReorderPdfPages = lazy(() => import('./pages/tools/ReorderPdfPages'));
+const PdfMetadataEditor = lazy(() => import('./pages/tools/PdfMetadataEditor'));
 
 const CurrencyConverter = lazy(() => import('./pages/tools/CurrencyConverter'));
 const UnitConverter = lazy(() => import('./pages/tools/UnitConverter'));
 const TemperatureConverter = lazy(() => import('./pages/tools/TemperatureConverter'));
 const TimezoneConverter = lazy(() => import('./pages/tools/TimezoneConverter'));
 const DateCalculator = lazy(() => import('./pages/tools/DateCalculator'));
+const DataStorageConverter = lazy(() => import('./pages/tools/DataStorageConverter'));
+const SpeedConverter = lazy(() => import('./pages/tools/SpeedConverter'));
+const AreaConverter = lazy(() => import('./pages/tools/AreaConverter'));
+const CookingMeasurementConverter = lazy(() => import('./pages/tools/CookingMeasurementConverter'));
 
 const BmiCalculator = lazy(() => import('./pages/tools/BmiCalculator'));
 const PercentageCalculator = lazy(() => import('./pages/tools/PercentageCalculator'));
 const LoanCalculator = lazy(() => import('./pages/tools/LoanCalculator'));
 const TipCalculator = lazy(() => import('./pages/tools/TipCalculator'));
+const AgeCalculator = lazy(() => import('./pages/tools/AgeCalculator'));
+const DiscountCalculator = lazy(() => import('./pages/tools/DiscountCalculator'));
+const GstVatCalculator = lazy(() => import('./pages/tools/GstVatCalculator'));
+const InterestCalculator = lazy(() => import('./pages/tools/InterestCalculator'));
+const BmrCalculator = lazy(() => import('./pages/tools/BmrCalculator'));
+const GpaCalculator = lazy(() => import('./pages/tools/GpaCalculator'));
 
 const CaseConverter = lazy(() => import('./pages/tools/CaseConverter'));
 const WordCounter = lazy(() => import('./pages/tools/WordCounter'));
 const Base64Converter = lazy(() => import('./pages/tools/Base64Converter'));
 const ColorConverter = lazy(() => import('./pages/tools/ColorConverter'));
+const JsonFormatter = lazy(() => import('./pages/tools/JsonFormatter'));
+const UrlEncoderDecoder = lazy(() => import('./pages/tools/UrlEncoderDecoder'));
+const LoremIpsumGenerator = lazy(() => import('./pages/tools/LoremIpsumGenerator'));
+const TextDiffChecker = lazy(() => import('./pages/tools/TextDiffChecker'));
+const QrCodeGenerator = lazy(() => import('./pages/tools/QrCodeGenerator'));
+const TextLineTools = lazy(() => import('./pages/tools/TextLineTools'));
 
 const NumberBaseConverter = lazy(() => import('./pages/tools/NumberBaseConverter'));
 const RomanNumeralConverter = lazy(() => import('./pages/tools/RomanNumeralConverter'));
 const PasswordGenerator = lazy(() => import('./pages/tools/PasswordGenerator'));
+const HashGenerator = lazy(() => import('./pages/tools/HashGenerator'));
+const UuidGenerator = lazy(() => import('./pages/tools/UuidGenerator'));
+const RandomGenerator = lazy(() => import('./pages/tools/RandomGenerator'));
 
 function NotFound() {
   return (
@@ -72,26 +95,49 @@ export default function App() {
             <Route path="/tools/page-numbers" element={<PageNumbers />} />
             <Route path="/tools/images-to-pdf" element={<ImagesToPdf />} />
             <Route path="/tools/pdf-to-images" element={<PdfToImages />} />
+            <Route path="/tools/extract-pdf-text" element={<ExtractPdfText />} />
+            <Route path="/tools/extract-pdf-images" element={<ExtractPdfImages />} />
+            <Route path="/tools/reorder-pdf-pages" element={<ReorderPdfPages />} />
+            <Route path="/tools/pdf-metadata-editor" element={<PdfMetadataEditor />} />
 
             <Route path="/tools/currency-converter" element={<CurrencyConverter />} />
             <Route path="/tools/unit-converter" element={<UnitConverter />} />
             <Route path="/tools/temperature-converter" element={<TemperatureConverter />} />
             <Route path="/tools/timezone-converter" element={<TimezoneConverter />} />
             <Route path="/tools/date-calculator" element={<DateCalculator />} />
+            <Route path="/tools/data-storage-converter" element={<DataStorageConverter />} />
+            <Route path="/tools/speed-converter" element={<SpeedConverter />} />
+            <Route path="/tools/area-converter" element={<AreaConverter />} />
+            <Route path="/tools/cooking-measurement-converter" element={<CookingMeasurementConverter />} />
 
             <Route path="/tools/bmi-calculator" element={<BmiCalculator />} />
             <Route path="/tools/percentage-calculator" element={<PercentageCalculator />} />
             <Route path="/tools/loan-calculator" element={<LoanCalculator />} />
             <Route path="/tools/tip-calculator" element={<TipCalculator />} />
+            <Route path="/tools/age-calculator" element={<AgeCalculator />} />
+            <Route path="/tools/discount-calculator" element={<DiscountCalculator />} />
+            <Route path="/tools/gst-vat-calculator" element={<GstVatCalculator />} />
+            <Route path="/tools/interest-calculator" element={<InterestCalculator />} />
+            <Route path="/tools/bmr-calculator" element={<BmrCalculator />} />
+            <Route path="/tools/gpa-calculator" element={<GpaCalculator />} />
 
             <Route path="/tools/case-converter" element={<CaseConverter />} />
             <Route path="/tools/word-counter" element={<WordCounter />} />
             <Route path="/tools/base64-converter" element={<Base64Converter />} />
             <Route path="/tools/color-converter" element={<ColorConverter />} />
+            <Route path="/tools/json-formatter" element={<JsonFormatter />} />
+            <Route path="/tools/url-encoder-decoder" element={<UrlEncoderDecoder />} />
+            <Route path="/tools/lorem-ipsum-generator" element={<LoremIpsumGenerator />} />
+            <Route path="/tools/text-diff-checker" element={<TextDiffChecker />} />
+            <Route path="/tools/qr-code-generator" element={<QrCodeGenerator />} />
+            <Route path="/tools/text-line-tools" element={<TextLineTools />} />
 
             <Route path="/tools/number-base-converter" element={<NumberBaseConverter />} />
             <Route path="/tools/roman-numeral-converter" element={<RomanNumeralConverter />} />
             <Route path="/tools/password-generator" element={<PasswordGenerator />} />
+            <Route path="/tools/hash-generator" element={<HashGenerator />} />
+            <Route path="/tools/uuid-generator" element={<UuidGenerator />} />
+            <Route path="/tools/random-generator" element={<RandomGenerator />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

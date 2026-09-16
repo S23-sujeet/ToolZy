@@ -171,3 +171,52 @@ export async function getPageCount(file: PdfSource): Promise<number> {
   const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
   return doc.getPageCount();
 }
+
+/** Reorders pages given a full permutation of 1-indexed page numbers, e.g. [3,1,2]. */
+export async function reorderPdfPages(file: PdfSource, newOrder: number[]): Promise<Uint8Array> {
+  const bytes = await toBytes(file);
+  const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+  const total = doc.getPageCount();
+  const isValidPermutation =
+    newOrder.length === total &&
+    new Set(newOrder).size === total &&
+    newOrder.every((n) => Number.isInteger(n) && n >= 1 && n <= total);
+  if (!isValidPermutation) {
+    throw new Error(`Provide each page number from 1 to ${total} exactly once.`);
+  }
+  const out = await PDFDocument.create();
+  const pages = await out.copyPages(
+    doc,
+    newOrder.map((n) => n - 1),
+  );
+  pages.forEach((page) => out.addPage(page));
+  return out.save();
+}
+
+export interface PdfMetadata {
+  title: string;
+  author: string;
+  subject: string;
+  keywords: string;
+}
+
+export async function getPdfMetadata(file: PdfSource): Promise<PdfMetadata> {
+  const bytes = await toBytes(file);
+  const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+  return {
+    title: doc.getTitle() ?? '',
+    author: doc.getAuthor() ?? '',
+    subject: doc.getSubject() ?? '',
+    keywords: doc.getKeywords() ?? '',
+  };
+}
+
+export async function setPdfMetadata(file: PdfSource, metadata: PdfMetadata): Promise<Uint8Array> {
+  const bytes = await toBytes(file);
+  const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+  doc.setTitle(metadata.title);
+  doc.setAuthor(metadata.author);
+  doc.setSubject(metadata.subject);
+  doc.setKeywords(metadata.keywords ? metadata.keywords.split(',').map((k) => k.trim()).filter(Boolean) : []);
+  return doc.save();
+}
