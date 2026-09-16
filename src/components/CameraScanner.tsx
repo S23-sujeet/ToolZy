@@ -89,6 +89,43 @@ export default function CameraScanner({ mode, onResult }: CameraScannerProps) {
     }
   };
 
+  const capture = async () => {
+    const video = videoRef.current;
+    if (!video || !video.videoWidth || !video.videoHeight) {
+      setError('Camera preview is not ready yet. Try again in a moment.');
+      return;
+    }
+
+    const canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const context = canvas.getContext('2d', { willReadFrequently: true });
+    if (!context) {
+      setError('Your browser could not capture the camera preview.');
+      return;
+    }
+
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    try {
+      if (mode === 'qr') {
+        const result = jsQR(context.getImageData(0, 0, canvas.width, canvas.height).data, canvas.width, canvas.height, {
+          inversionAttempts: 'attemptBoth',
+        });
+        if (!result) throw new Error('No QR code was found in the captured image.');
+        onResult(result.data);
+      } else {
+        const imageUrl = canvas.toDataURL('image/png');
+        const reader = new BrowserMultiFormatReader();
+        const result = await reader.decodeFromImageUrl(imageUrl);
+        onResult(result.getText(), result.getBarcodeFormat().toString());
+      }
+      stop();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'No code was found in the captured image.');
+    }
+  };
+
   useEffect(() => stop, [stop]);
 
   return (
@@ -96,15 +133,14 @@ export default function CameraScanner({ mode, onResult }: CameraScannerProps) {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 className="font-semibold text-slate-800">Scan with camera</h2>
-          <p className="mt-1 text-sm text-slate-500">Use your device camera. Nothing is uploaded.</p>
+          <p className="mt-1 text-sm text-slate-500">Use your device camera. Frames are processed locally; nothing is uploaded.</p>
         </div>
-        <button
-          type="button"
-          onClick={() => void (active ? stop() : start())}
-          className="rounded-xl bg-slate-800 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700"
-        >
-          {active ? 'Stop camera' : 'Open camera'}
-        </button>
+        <div className="flex flex-wrap gap-2">
+          {active && <button type="button" onClick={() => void capture()} className="rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-700">Capture image</button>}
+          <button type="button" onClick={() => void (active ? stop() : start())} className="rounded-xl bg-slate-800 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700">
+            {active ? 'Stop camera' : 'Open camera'}
+          </button>
+        </div>
       </div>
       <video
         ref={videoRef}
