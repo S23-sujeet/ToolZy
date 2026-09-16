@@ -48,6 +48,7 @@ Once you pick a real domain, update:
 
 ## Tools included
 
+### PDF Toolkit
 | Tool | Description |
 | --- | --- |
 | Merge PDF | Combine multiple PDFs, reorderable, into one file |
@@ -59,6 +60,61 @@ Once you pick a real domain, update:
 | Add Page Numbers | "Page X of N" footer on every page |
 | Images to PDF | Combine JPG/PNG images into one PDF |
 | PDF to Images | Export each page as PNG/JPG (zipped if multi-page) |
+| Extract Text from PDF | Pull the plain text out of every page |
+| Extract Images from PDF | Save embedded photos/graphics as PNG files |
+| Reorder PDF Pages | Rearrange page order with move up/down |
+| Edit PDF Metadata | View/update title, author, subject, keywords |
+
+### Everyday Conversions
+| Tool | Description |
+| --- | --- |
+| Currency Converter | Live exchange rates via frankfurter.app |
+| Unit Converter | Length, weight, volume, area, speed, data storage |
+| Temperature Converter | Celsius/Fahrenheit/Kelvin |
+| Timezone Converter | Convert a date/time between any two timezones |
+| Date Calculator | Count days, add/subtract days, workdays, weekday lookup, week # |
+| Data Storage Converter | Bits, bytes, KB/MB/GB/TB/PB |
+| Speed Converter | km/h, mph, m/s, knots, ft/s |
+| Area Converter | m², ft², acres, hectares, miles² |
+| Cooking Measurement Converter | Cups/tbsp/tsp <-> grams for common ingredients |
+
+### Calculators
+| Tool | Description |
+| --- | --- |
+| BMI Calculator | Body Mass Index and weight category |
+| Percentage Calculator | Percent of, percent change, and more |
+| Loan / EMI Calculator | Monthly payment and total interest |
+| Tip & Bill Split Calculator | Tip amount and even bill split |
+| Age Calculator | Exact age in years/months/days + next birthday countdown |
+| Discount Calculator | Sale price and savings for any discount % |
+| GST / VAT Calculator | Add or extract sales tax from a price |
+| Simple & Compound Interest Calculator | Compare both methods over time |
+| BMR / Calorie Calculator | Basal metabolic rate and daily calorie needs |
+| GPA Calculator | Grade point average from grades and credits |
+
+### Text & Data Conversion
+| Tool | Description |
+| --- | --- |
+| Case Converter | UPPERCASE, lowercase, Title Case, camelCase, etc. |
+| Word & Character Counter | Words, characters, sentences, reading time |
+| Base64 Encoder / Decoder | Unicode-safe Base64 encode/decode |
+| Color Converter | HEX/RGB/HSL with live preview |
+| JSON Formatter & Validator | Pretty-print, minify, validate |
+| URL Encoder / Decoder | Percent-encode/decode text |
+| Lorem Ipsum Generator | Placeholder paragraph generator |
+| Text Diff Checker | Line-based added/removed/unchanged comparison |
+| QR Code Generator | Text/URL to scannable QR code PNG |
+| Text Line Tools | Find & replace, sort lines, remove duplicates |
+
+### Numbers & Misc
+| Tool | Description |
+| --- | --- |
+| Number Base Converter | Binary/octal/decimal/hexadecimal |
+| Roman Numeral Converter | Number <-> Roman numerals |
+| Password Generator | CSPRNG-based, customizable length/charset |
+| Hash Generator | SHA-1/256/384/512 via Web Crypto |
+| UUID Generator | RFC 4122 v4 UUIDs, single or bulk |
+| Random Number / Dice / Coin Flip | CSPRNG-based random generators |
 
 ## Getting started
 
@@ -82,7 +138,8 @@ plus static fallbacks that work even without JS execution:
   `WebApplication` JSON-LD structured data block, so the initial (pre-JS) HTML
   response is already meaningful to crawlers and social-media unfurlers.
 - **`public/robots.txt`** allows all crawling and points to the sitemap.
-- **`public/sitemap.xml`** lists all 11 routes (home, premium, 9 tools) with priorities.
+- **`public/sitemap.xml`** lists every route (home, premium, 5 category hubs, and
+  every tool page).
 - **`public/site.webmanifest`** adds installability signals (helps mobile/PWA-aware
   ranking signals and "Add to Home Screen").
 - **Performance**: tool pages are code-split (`React.lazy`) so the crawlable home
@@ -101,6 +158,9 @@ meaningfully improves social-share click-through rates).
 npm run test:gen-assets   # generate sample PDFs/images into %TEMP%\pdf-toolkit-test-assets
 npm run test:pdf-lib      # run deterministic checks against every pdf-lib operation (merge, split,
                            # extract range, delete pages, rotate, watermark, page numbers, images-to-pdf, compress)
+npm run test:date-tools   # deterministic checks for every date-math function
+npm run test:new-tools    # deterministic checks for calculators, unit conversions, text tools,
+                           # hashing and ID generators added alongside the expanded tool set
 ```
 
 See [TEST_REPORT.md](./TEST_REPORT.md) for the full functional test log, including browser-level tool checks and
@@ -117,42 +177,58 @@ code, so it can be hosted anywhere that can serve static files.
   `/* /index.html 200`) handles client-side routing.
 - **Vercel**: import the repo, framework preset "Vite", output directory `dist`. Vercel
   auto-handles SPA fallback routing.
-- **Cloudflare Pages**: see the dedicated walkthrough below.
+- **Cloudflare Workers**: see the dedicated walkthrough below - this is what `wrangler.jsonc` in
+  this repo is configured for (not Cloudflare Pages).
 - **GitHub Pages**: build command `npm run build`, output `dist`. Keep `base: './'` in
   `vite.config.ts` (already set) so assets resolve correctly under a repo subpath.
 
 No environment variables are required to deploy a working, ad-free site.
 
-#### Deploying to Cloudflare Pages
+#### Deploying to Cloudflare Workers
 
-**Via the dashboard (connects to Git, auto-deploys on every push):**
-1. Push this repo to GitHub/GitLab.
-2. Cloudflare dashboard -> **Workers & Pages** -> **Create application** -> **Pages** -> **Connect
-   to Git** -> select the repo.
-3. Build settings:
-   - Framework preset: `Vite`
+`wrangler.jsonc` in this repo uses the Workers **static assets** feature (`assets.directory`),
+not Cloudflare Pages - the live site is served from a `*.workers.dev` subdomain (or a custom
+domain attached to the Worker), and every deploy runs `wrangler deploy`, not
+`wrangler pages deploy`. Pushing to GitHub alone does **not** deploy anything unless one of the
+two options below is set up - there is no automatic connection between a GitHub repo and a
+Worker out of the box.
+
+**Option 1: GitHub Actions (recommended, included in this repo)**
+
+[.github/workflows/deploy.yml](.github/workflows/deploy.yml) builds and runs `wrangler deploy`
+on every push to `main`. To activate it:
+1. Cloudflare dashboard -> profile icon -> **My Profile** -> **API Tokens** -> **Create Token** ->
+   use the **Edit Cloudflare Workers** template (scope it to the account this Worker lives in).
+2. GitHub repo -> **Settings** -> **Secrets and variables** -> **Actions** -> **New repository
+   secret**, add:
+   - `CLOUDFLARE_API_TOKEN` = the token from step 1
+   - `CLOUDFLARE_ACCOUNT_ID` = Cloudflare dashboard -> **Workers & Pages** -> right sidebar
+     ("Account ID")
+3. Push to `main` (or re-run the workflow from the **Actions** tab) - it will build and deploy
+   automatically from now on. Check the **Actions** tab for build/deploy logs if a push doesn't
+   seem to have updated the live site.
+
+**Option 2: Cloudflare "Workers Builds" (git-connected, no GitHub Actions needed)**
+1. Cloudflare dashboard -> **Workers & Pages** -> select this Worker (or **Create application** ->
+   **Workers** -> **Connect to Git** if creating fresh) -> **Settings** -> **Builds**.
+2. Connect the GitHub repo, set:
    - Build command: `npm run build`
-   - Build output directory: `dist`
-   - Root directory: `pdf-toolkit` (only if this repo lives inside a monorepo/parent folder;
-     leave blank if `pdf-toolkit/` is the repo root itself)
-4. Environment variables (Pages project settings -> **Environment variables**), optional:
-   - `VITE_SITE_URL` = your real domain, e.g. `https://www.toolzy.app`
-   - `VITE_ADSENSE_CLIENT` = your AdSense publisher ID, if/when you enable ads
-5. Save and deploy. Cloudflare Pages natively supports the `public/_redirects` file already in
-   this repo, so client-side routes (`/tools/merge-pdf`, etc.) work correctly on direct load and
-   refresh with no extra config.
-6. Add your custom domain under the Pages project's **Custom domains** tab - Cloudflare issues
-   and renews the TLS certificate automatically.
+   - Deploy command: `npx wrangler deploy`
+   - Root directory: leave blank if this repo (`pdf-toolkit/`) is the Git repo root itself.
+3. Save - Cloudflare now builds and deploys on every push via its own CI, without needing GitHub
+   Actions or any repo secrets (it uses the account's own credentials).
 
-**Via the CLI (no dashboard/Git connection needed - good for quick previews):**
+Only set up **one** of the two options above - running both will just deploy the same Worker
+twice per push.
+
+**Manual/CLI deploy (no CI at all - good for one-off or local deploys):**
 ```bash
 npm install
 npm run build
-npx wrangler pages deploy dist --project-name=toolzy
+npx wrangler deploy
 ```
-The first run prompts you to log in and create the Pages project; subsequent runs redeploy the
-same project. Pass `--branch=production` to publish straight to the production URL instead of a
-preview URL.
+The first run prompts you to log in to Cloudflare; subsequent runs redeploy the same Worker
+named in `wrangler.jsonc`.
 
 ### Option B: Your own server (VPS, dedicated box, on-prem) with Docker
 
